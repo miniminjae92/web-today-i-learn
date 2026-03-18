@@ -1,148 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>고래's TIL</title>
 
-    <!-- TODO: Open Graph 메타 태그를 설정하세요 -->
-    <!-- <meta property="og:title" content="페이지 제목" /> -->
-    <!-- <meta property="og:description" content="페이지 설명" /> -->
-    <!-- <meta property="og:image" content="./images/thumbnail.jpg" /> -->
+    <meta property="og:title" content="고래의 TIL 페이지" />
+    <meta
+      property="og:description"
+      content="우아한테크코스 8기 백엔드 고래(강민재)의 학습 기록입니다."
+    />
+    <meta property="og:image" content="./images/og-image.jpg" />
 
-    <title>Today I Learn</title>
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <!-- 상단 내비게이션 -->
     <nav class="top-nav">
-      <span class="nav-logo">My Page</span>
-      <ul class="nav-links">
-        <li><a href="#about">자기소개</a></li>
-        <li><a href="#gallery">갤러리</a></li>
-        <li><a href="#works">인생 작품</a></li>
-        <li><a href="#til">TIL</a></li>
-      </ul>
+      <div class="nav-content">
+        <span class="nav-logo">고래's Log</span>
+        <ul class="nav-links">
+          <li><a href="#about">자기소개</a></li>
+          <li><a href="#info">정보</a></li>
+          <li><a href="#gallery">갤러리</a></li>
+          <li><a href="#works">인생작</a></li>
+          <li><a href="#til">TIL</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <!-- 프로필 히어로 -->
     <section class="hero" id="about">
       <div class="profile-card">
         <div class="profile-image">
-          <!-- TODO: 프로필 이미지를 넣어주세요 -->
-          <!-- <img src="./images/profile.jpg" alt="프로필 사진" /> -->
+          <img src="./images/profile.jpeg" alt="고래 프로필 사진" />
         </div>
         <div class="profile-info">
-          <h1>닉네임</h1>
-          <p class="tagline">한 줄 소개를 작성해주세요.</p>
+          <h1>고래</h1>
+          <p class="tagline">우테코 8기 백엔드 고래입니다.</p>
+          <div class="intro-text">
+            <p>
+              배움과 사유를 즐기며, 지적 교류를 통해 함께 성장하는 것을
+              좋아합니다.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://github.com/miniminjae92"
+                target="_blank"
+                class="btn-link"
+                >GitHub</a
+              >
+              <a
+                href="https://miniminjae.vercel.app/"
+                target="_blank"
+                class="btn-link"
+                >Blog</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <main>
-      <!-- 자기소개 -->
-      <section class="content-section">
-        <h2>자기소개</h2>
-        <p>자기소개를 작성해주세요.</p>
-        <!-- TODO: 소개 글 안에 블로그, GitHub 등 관련 링크를 <a> 태그로 연결하세요 -->
-      </section>
-
-      <!-- 기본 정보 -->
+    <main class="container">
       <section class="content-section" id="info">
         <h2>기본 정보</h2>
-        <!-- TODO: 자신의 기본 정보를 표(<table>)로 정리하세요 -->
-        <table class="info-table">
-          <tr>
-            <th>이름</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>MBTI</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>취미</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>좋아하는 음식</th>
-            <td></td>
-          </tr>
-        </table>
+        <div class="card">
+          <table class="info-table">
+            <tr>
+              <th>이름</th>
+              <td>강민재</td>
+            </tr>
+            <tr>
+              <th>MBTI</th>
+              <td>INFP</td>
+            </tr>
+            <tr>
+              <th>취미</th>
+              <td>사유하기, 맛집 탐방, 음악감상, 영상 매체 시청, 러닝</td>
+            </tr>
+            <tr>
+              <th>좋아하는 음식</th>
+              <td>회, 스시, 소고기, 참치, 밥, 밀면</td>
+            </tr>
+          </table>
+        </div>
       </section>
 
-      <!-- 나만의 갤러리 -->
       <section class="content-section" id="gallery">
         <h2>나만의 갤러리</h2>
-        <p class="section-desc">갤러리 부제를 작성해주세요. (예: 기억에 남는 여행지)</p>
+        <p class="section-desc">소중한 순간들: 가족</p>
         <div class="gallery-grid">
-          <!-- TODO: 9장의 이미지를 배치하세요 -->
-          <!--
-          <img src="./images/gallery-1.jpg" alt="갤러리 이미지 1" />
-          <img src="./images/gallery-2.jpg" alt="갤러리 이미지 2" />
-          ...
-          -->
+          <div class="gallery-item">
+            <img src="./images/family1.jpeg" alt="가족 사진 1" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family2.jpeg" alt="가족 사진 2" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family3.jpeg" alt="가족 사진 3" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family4.jpeg" alt="가족 사진 4" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family5.jpeg" alt="가족 사진 5" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family6.jpeg" alt="가족 사진 6" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family7.jpeg" alt="가족 사진 7" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family8.jpeg" alt="가족 사진 8" />
+          </div>
+          <div class="gallery-item">
+            <img src="./images/family9.jpeg" alt="가족 사진 9" />
+          </div>
         </div>
       </section>
 
-      <!-- 나를 울린 인생 작품 -->
       <section class="content-section" id="works">
         <h2>나를 울린 인생 작품</h2>
-        <div class="works-list">
-          <!-- TODO: 최소 2가지 작품을 소개하세요 -->
-          <!-- TODO: 작품 중 하나는 <video> 또는 <iframe>으로 영상을 삽입하세요 -->
+        <div class="works-container">
           <article class="work-card">
-            <div class="work-thumbnail">
-              <!-- 작품 이미지 -->
+            <div class="work-video">
+              <iframe
+                src="https://www.youtube.com/embed/gRKVvInmo_8?si=KUy45eOTeZojkeiv"
+                title="나의 아저씨"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </div>
             <div class="work-info">
-              <h3>작품 제목</h3>
-              <p>작품에 대한 설명을 작성해주세요.</p>
+              <h3>나의 아저씨</h3>
+              <p>삶의 무게를 버티며 살아가는 사람들에게 건네는 따뜻한 위로.</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-video">
+              <iframe
+                src="https://www.youtube.com/embed/biq3XcHgXqQ?si=ClwqZlX0bkUuR-le"
+                title="폭싹 속았수다"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="work-info">
+              <h3>폭싹 속았수다</h3>
+              <p>고생 많으셨습니다</p>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-info">
+              <h3>인생 도서 모음</h3>
+              <div class="book-container">
+                <div class="book-item">
+                  <div class="book-image">
+                    <img src="./images/niche.png" alt="마흔에 읽는 니체 표지" />
+                  </div>
+                  <div class="book-text">
+                    <strong>마흔에 읽는 니체</strong>
+                    <p>
+                      내일 죽을 것처럼 오늘을 사랑하라! 마흔의 삶에 자극제가
+                      되는 니체의 25가지 조언
+                    </p>
+                  </div>
+                </div>
+
+                <div class="book-item">
+                  <div class="book-image">
+                    <img src="./images/gene.png" alt="이기적 유전자 표지" />
+                  </div>
+                  <div class="book-text">
+                    <strong>이기적 유전자</strong>
+                    <p>생명에 대한 새로운 시각과 다윈주의의 현대적 해석</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- TIL (Today I Learned) -->
       <section class="content-section" id="til">
-        <h2>TIL</h2>
-        <p class="section-desc">오늘 새롭게 배운 것들을 기록합니다.</p>
-
-        <!-- TIL 작성 폼 -->
-        <form class="til-form" id="til-form">
-          <div class="form-group">
-            <label for="til-date">날짜</label>
-            <input type="date" id="til-date" name="date" required />
-          </div>
-          <div class="form-group">
-            <label for="til-title">제목</label>
-            <input type="text" id="til-title" name="title" placeholder="학습 주제를 입력하세요" required />
-          </div>
-          <div class="form-group">
-            <label for="til-content">내용</label>
-            <textarea id="til-content" name="content" placeholder="오늘 배운 내용을 정리해주세요" required></textarea>
-          </div>
-          <div class="form-actions">
-            <button type="submit">등록</button>
-            <button type="reset">초기화</button>
-          </div>
-        </form>
-
-        <!-- TIL 목록: 폼으로 등록하면 여기에 항목이 추가됩니다 -->
-        <div class="til-list" id="til-list">
-          <!-- 아래는 예시 항목입니다. 자유롭게 수정하거나 삭제하세요 -->
-          <article class="til-item">
-            <time>2026-03-15</time>
-            <h3>HTML 시멘틱 태그</h3>
-            <p>header, nav, main, section, article, footer 등 시멘틱 태그의 역할과 사용법을 배웠다.</p>
-          </article>
+        <h2>Today I Learned</h2>
+        <div class="card">
+          <form id="til-form" class="til-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="til-date">날짜</label>
+                <input type="date" id="til-date" required />
+              </div>
+              <div class="form-group">
+                <label for="til-title">제목</label>
+                <input
+                  type="text"
+                  id="til-title"
+                  placeholder="무엇을 배웠나요?"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="til-content">내용</label>
+              <textarea
+                id="til-content"
+                rows="4"
+                placeholder="학습 내용을 요약해 주세요"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">기록하기</button>
+          </form>
         </div>
-      </section>
 
+        <div id="til-list" class="til-list"></div>
+      </section>
     </main>
 
     <footer>
-      <p>&copy; My Page</p>
+      <p>&copy; 2026 Whale. Powered by Passion.</p>
     </footer>
+    <div id="image-modal" class="modal">
+      <span class="close-modal">&times;</span>
+
+      <button class="nav-btn prev-btn">&lt;</button>
+
+      <img class="modal-content" id="full-image" />
+
+      <button class="nav-btn next-btn">&gt;</button>
+    </div>
   </body>
 </html>

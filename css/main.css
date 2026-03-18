@@ -1,3 +1,514 @@
+/* 구글 폰트 및 외부 스타일 시트 임포트 */
+@import url("https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&display=swap");
 @import "./reset.css";
 @import "./common.css";
 @import "./wiki-layout.css";
+
+/* 페이지 전체에 부드러운 스크롤 효과 적용 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 전역 변수 설정: 고래 테마 색상 및 그림자 */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --nav-bg-color: rgba(255, 255, 255, 0.95);
+  --hero-bg-color: #f0f7ff;
+  --card-bg-color: #ffffff;
+  --divider-color: #ececec;
+  --font-default-color: #333;
+  --font-light-color: #666;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 기본 레이아웃 및 박스 모델 설정 */
+* {
+  box-sizing: border-box;
+}
+
+/* 바디 기본 폰트 및 배경색 설정 */
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--font-default-color);
+  background-color: #fdfdfd;
+}
+
+/* 제목 전용 주아체 일괄 적용 */
+h1,
+h2,
+h3 {
+  font-family: "Jua", serif;
+  font-weight: 400;
+}
+
+/* 상단 네비게이션 바: 스티키 고정 및 애니메이션 성능 최적화 */
+.top-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background-color: var(--nav-bg-color);
+  border-bottom: 1px solid var(--divider-color);
+  z-index: 100;
+  display: block !important;
+  /* 부드러운 상태 변화를 위한 트랜지션 */
+  transition:
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  /* 브라우저 렌더링 최적화 힌트 */
+  will-change: box-shadow, background-color;
+}
+
+/* 네비게이션 내부 콘텐츠: 양 끝 정렬 레이아웃 */
+.top-nav .nav-content {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+}
+
+/* 네비게이션 로고 스타일 */
+.nav-logo {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  font-family: "Jua", serif;
+}
+
+/* 네비게이션 메뉴 리스트 가로 정렬 */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+/* 메뉴 링크 기본 스타일 및 하단 애니메이션 라인 위치 설정 */
+.nav-links a {
+  text-decoration: none;
+  color: var(--font-default-color);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+/* 메뉴 호버 시 강조 색상 변경 */
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* 메뉴 하단 밑줄: 중앙에서 양옆으로 확장되는 가상 요소 */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+/* 호버 시 밑줄 가로 너비 확장 */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* 히어로 섹션: 프로필 카드 배경 및 중앙 정렬 */
+.hero {
+  padding: 80px 20px;
+  background-color: var(--hero-bg-color);
+  display: flex;
+  justify-content: center;
+}
+
+/* 프로필 카드 내부 요소 배치 간격 설정 */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* 원형 프로필 이미지 테두리 및 그림자 효과 */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 이미지 비율 유지하며 꽉 채우기 */
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 프로필 타이틀(닉네임) 폰트 크기 및 색상 */
+.profile-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+/* 한 줄 소개 텍스트 스타일 */
+.tagline {
+  font-size: 1.2rem;
+  color: var(--font-light-color);
+  margin-bottom: 15px;
+}
+
+/* 자기소개 텍스트와 버튼 묶음 사이 수직 간격 */
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 자기소개 본문 가독성을 위한 줄간격 설정 */
+.intro-text p {
+  margin: 0;
+  color: var(--font-light-color);
+  line-height: 1.8;
+}
+
+/* 링크 버튼들을 가로로 배치 */
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+/* 버튼 공통 스타일: 고래 테마 적용 */
+.btn-link {
+  margin: 0;
+  padding: 10px 24px;
+  border-radius: 25px;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* 버튼 호버 시 위로 살짝 떠오르는 인터랙션 */
+.btn-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* 메인 콘텐츠 영역 중앙 정렬 및 섹션 간 상단 여백 확보 */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* 섹션 이동 시 상단바에 가려지지 않도록 여백 설정 */
+.content-section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--divider-color);
+  scroll-margin-top: 80px;
+}
+
+/* 섹션 제목 강조 색상 */
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: var(--primary-color);
+}
+
+/* 정보 테이블: 카드형 디자인 및 그림자 적용 */
+.info-table {
+  width: 100%;
+  background: var(--card-bg-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* 테이블 셀 패딩 및 하단 구분선 */
+.info-table th,
+.info-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+/* 테이블 헤더 배경색 및 폰트 강조 */
+.info-table th {
+  background-color: #f8f9fa;
+  width: 160px;
+  font-weight: 700;
+  color: var(--font-light-color);
+}
+
+/* 갤러리 그리드: 3열 고정 및 이미지 간격 설정 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* 갤러리 이미지 정사각형 유지 및 호버 효과 */
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 갤러리 이미지 호버 시 확대 효과 */
+.gallery-grid img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 인생 작품 카드형 레이아웃 */
+.work-card {
+  background: var(--card-bg-color);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+/* 유튜브 영상 고정 비율(16:9) 설정 */
+.work-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* TIL 입력 폼 배경 및 요소 간격 */
+.til-form {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 날짜와 제목 입력을 가로로 배치 */
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* 각 입력 필드 레이블 스타일 */
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 인풋 및 텍스트에리어 둥근 모서리 적용 */
+.til-form input,
+.til-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+/* 기록하기 버튼 강조 및 전환 효과 */
+.btn-submit {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* 기록하기 버튼 호버 시 색상 어둡게 변경 */
+.btn-submit:hover {
+  background: var(--secondary-color);
+}
+
+/* 등록된 TIL 아이템 왼쪽 포인트 라인 디자인 */
+.til-item {
+  background: white;
+  padding: 24px;
+  border-left: 6px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  position: relative;
+}
+
+/* TIL 게시 일자 강조 */
+.til-item time {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* TIL 제목 폰트 크기 설정 */
+.til-item h3 {
+  margin: 10px 0;
+  font-size: 1.3rem;
+}
+
+/* 푸터 중앙 정렬 및 텍스트 투명도 조절 */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* 모달 배경: 평소에는 숨김 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 검은색 반투명 배경 */
+  cursor: zoom-out;
+}
+
+/* 모달 안의 이미지 스타일 */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  animation: zoomIn 0.3s;
+}
+
+/* 닫기 버튼 */
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 나타날 때 애니메이션 */
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* 모달 내비게이션 버튼 공통 스타일 */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 20px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  z-index: 1002;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.prev-btn {
+  left: 20px;
+}
+.next-btn {
+  right: 20px;
+}
+
+/* 모달이 열렸을 때 본문 스크롤 방지용 클래스 */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* 도서들을 감싸는 컨테이너 */
+.book-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 책들 사이의 간격 */
+  margin-top: 15px;
+}
+
+/* 개별 책 항목: 이미지와 텍스트를 가로로 배치 */
+.book-item {
+  display: flex;
+  align-items: center; /* 이미지와 텍스트를 수직 중앙 정렬 */
+  gap: 24px; /* 이미지와 텍스트 사이의 간격 */
+}
+
+/* 책 표지 이미지 박스 */
+.book-image {
+  width: 100px; /* 책 너비 고정 */
+  height: 140px; /* 책 높이 고정 */
+  flex-shrink: 0; /* 부모가 좁아져도 이미지 크기 유지 */
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15); /* 입체감 부여 */
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 비율 유지하며 꽉 채우기 */
+}
+
+/* 책 설명 텍스트 */
+.book-text {
+  flex: 1; /* 남은 공간을 다 차지 */
+}
+
+.book-text strong {
+  display: block;
+  font-size: 1.15rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-family: "Jua", sans-serif;
+}
+
+.book-text p {
+  font-size: 0.95rem;
+  color: var(--font-light-color);
+  line-height: 1.6;
+  margin: 0;
+}
